@@ -6,9 +6,7 @@ clc
 clear
 
 %%% User Inputs
-name_prefix = 'img_';
-increment = .000000001;
-name_suffix = '_Default_000.tif';
+
 capture_start = [735, 575]; %top left point of roi [x,y]
 capture_side_len = 30;
 capture_divisions = 9; %since 30 is divisible by sqrt(9)
@@ -16,7 +14,9 @@ capture_frame_quantity = 2000;
 %%% User Inputs
 
 capture_region = setROI(capture_start, capture_side_len);
+stored = extractAvgSubunits('C:\Users\Loturco\Desktop\Bing - Matlab Analysis\sample data\5msecglutamateprepost_1',capture_region, num_frames, capture_divisions);
 
+%{
 fprintf('Extracting Image Data...\n')
 cd('C:\Users\Loturco\Documents\MATLAB\trialtiff')
 roi_side_len = sqrt(capture_divisions);
@@ -39,6 +39,7 @@ for i = 0:capture_frame_quantity-1
         unit_x = unit_x + 10
     end
 end
+%}
 
 fprintf('Plotting Data...\n')
 time = 1:capture_frame_quantity;
