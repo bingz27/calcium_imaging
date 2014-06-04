@@ -10,8 +10,8 @@ num_frames = 2000;
 %%% User Inputs
 roi_region_active = setROI(roi_start_active, roi_side_len);
 roi_region_inactive = setROI(roi_start_inactive, roi_side_len);
-stored_active = extractAverage('C:\Users\Loturco\Documents\MATLAB\trialtiff',roi_region_active, num_frames);
-stored_inactive = extractAverage('C:\Users\Loturco\Documents\MATLAB\trialtiff',roi_region_inactive, num_frames, +260);
+stored_active = extractAverage('C:\Users\Loturco\Desktop\Bing - Matlab Analysis\sample data\5msecglutamateprepost_1',roi_region_active, num_frames);
+stored_inactive = extractAverage('C:\Users\Loturco\Desktop\Bing - Matlab Analysis\sample data\5msecglutamateprepost_1',roi_region_inactive, num_frames, +260);
 
 fprintf('Plotting Data...\n')
 time = 1:num_frames;
