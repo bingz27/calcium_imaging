@@ -1,4 +1,4 @@
-function roi_region = setROI(roi_start, roi_side_len)
+function roi_region = setroi(roi_start, roi_side_len)
 % SETROI Creates a grid ROI value with start and end x and y coordinates.
 % roiRegion = SETROI(roi_start, roi_side_len)
 fprintf('Creating ROI...\n')

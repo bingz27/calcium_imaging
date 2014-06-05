@@ -1,4 +1,4 @@
-function filename = joinFilename(varargin)
+function filename = joinfilename(varargin)
 % JOINFILENAME Joints parts of an individual filename.
 %   filename = JOINFILENAME(count, name_prefix, name_increment, name_suffix)
 %   filename = JOINFILENAME(name_prefix, name_increment, name_suffix)

@@ -7,15 +7,10 @@ old_dir = pwd;
 cd(img_dir)
 
 Filename = varargin{2};
-%filename = joinFilename(Filename.prefix, Filename.changing_region, Filename.suffix);
-img_path = strcat(img_dir, '5msecglutamateprepost_1.tif')
+filename = joinFilename(Filename.prefix, Filename.changing_region, Filename.suffix);
+img_path = strcat(img_dir, '\', filename);
 im = imread(img_path);
 imshow(im, [])
-%{
-[X, map] = imread(img_path);
-imagesc(X)
-colormap(map)
-
 axis off
 hold on
 
@@ -28,5 +23,4 @@ f = getframe(gca);
 
 imwrite(X, 'test.tiff');
 cd(old_dir)
-%}
 end

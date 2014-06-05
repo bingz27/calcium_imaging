@@ -1,4 +1,4 @@
-function stored_pixels = parseImages(image_dir, base_filename, roi_region, num_frames, amplituide_boost)
+function stored_pixels = parseimages(image_dir, base_filename, roi_region, num_frames, amplituide_boost)
 % PARSEIMAGES Extracts selected ROI from image stack and outputs stack of average amplitude in ROI over time.
 %   storedPixels = PARSEIMAGES(image_dir, base_filename, roi_region, num_frames, amplituide_boost)
 %   TODO: allow user to set start 
