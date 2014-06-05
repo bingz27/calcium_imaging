@@ -1,8 +1,8 @@
-function roi_region = setroi(roi_start, roi_side_len)
+function roiRegion = setroi(roiStart, roiSideLength)
 % SETROI Creates a grid ROI value with start and end x and y coordinates.
 % roiRegion = SETROI(roi_start, roi_side_len)
 fprintf('Creating ROI...\n')
-roi_rows = [roi_start(2), roi_start(2) + roi_side_len];
-roi_cols = [roi_start(1), roi_start(1) + roi_side_len];
-roi_region = {roi_rows, roi_cols}; %#rows = y coord, #cols = x coord
+roiRows = [roiStart(2), roiStart(2) + roiSideLength];
+roiCols = [roiStart(1), roiStart(1) + roiSideLength];
+roiRegion = {roiRows, roiCols}; %#rows = y coord, #cols = x coord
 end

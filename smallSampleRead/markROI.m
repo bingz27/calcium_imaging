@@ -2,13 +2,13 @@ function markroi(varargin)
 % MARKROI Draw outline of ROI onto brain image file.
 %   markedImage = MARKROI(image_dir, Filename, roi_start1, roi_side_len1...roi_startN, roi_side_lenN)
 
-img_dir = varargin{1};
-old_dir = pwd;
-cd(img_dir)
+imgDir = varargin{1};
+oldDir = pwd;
+cd(imgDir)
 
 Filename = varargin{2};
-filename = joinFilename(Filename.prefix, Filename.changing_region, Filename.suffix);
-img_path = strcat(img_dir, '\', filename);
+filename = joinfilename(Filename.prefix, Filename.changing_region, Filename.suffix);
+img_path = strcat(imgDir, '\', filename);
 im = imread(img_path);
 imshow(im, [])
 axis off
@@ -22,5 +22,5 @@ f = getframe(gca);
 [X, map] = frame2im(f);
 
 imwrite(X, 'test.tiff');
-cd(old_dir)
+cd(oldDir)
 end

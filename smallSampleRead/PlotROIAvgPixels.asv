@@ -1,0 +1,21 @@
+clc
+clear
+
+%%% User Inputs
+roi_start_1 = [745, 590]; %top left point of roi [x,y]
+roi_start_2 = [760, 590];
+roi_side_len = 15;
+num_frames = 2000;
+BaseFilename = Filename('img_', .000000001,'_Default_000.tif'); %based on camera image naming system
+%%% User Inputs
+
+roiRegion1 = setroi(roi_start_1, roi_side_len);
+roiRegion2 = setroi(roi_start_2, roi_side_len);
+stored_active = parseimages('C:\Users\Loturco\Desktop\Bing - Matlab Analysis\sample data\5msecglutamateprepost_1', BaseFilename, roi_region_1, num_frames);
+stored_inactive = parseimages('C:\Users\Loturco\Desktop\Bing - Matlab Analysis\sample data\5msecglutamateprepost_1', BaseFilename, roi_region_2, num_frames, +185);
+markROI('C:\Users\Loturco\Desktop\Bing - Matlab Analysis\sample data\5msecglutamateprepost_1', BaseFilename, roi_start_1, roi_side_len, roi_start_2, roi_side_len);
+
+fprintf('Plotting Data...\n')
+time = 1:num_frames;
+plot(time, stored_active, 'm', time, stored_inactive, 'c')
+fprintf('Done!\n')
