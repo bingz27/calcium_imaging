@@ -14,7 +14,7 @@ roi_region_2 = setROI(roi_start_2, roi_side_len);
 stored_active = parseImages('C:\Users\Loturco\Desktop\Bing - Matlab Analysis\sample data\5msecglutamateprepost_1', base_filename, roi_region_1, num_frames);
 stored_inactive = parseImages('C:\Users\Loturco\Desktop\Bing - Matlab Analysis\sample data\5msecglutamateprepost_1', base_filename, roi_region_2, num_frames, +185);
 
-%im = markROI('C:\Users\Loturco\Desktop\Bing - Matlab Analysis\sample data\5msecglutamateprepost_1', roi_region_active, roi_region_inactive);
+%im = markROI('C:\Users\Loturco\Desktop\Bing - Matlab Analysis\sample data\5msecglutamateprepost_1', roi_start_1, roi_side_len);
 %show(im)
 
 fprintf('Plotting Data...\n')
