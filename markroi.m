@@ -14,8 +14,9 @@ imshow(im, [])
 axis off
 hold on
 
-for i = 3:2:nargin-1
-    rectangle('Position', [varargin{i}(1), varargin{i}(2), varargin{i+1}, varargin{i+1}]) %rectangle('Position', [x, y, w, h])
+roiSideLength = varargin{3};
+for i = 4:nargin
+    rectangle('Position', [varargin{i}(1), varargin{i}(2), roiSideLength, roiSideLength]) %rectangle('Position', [x, y, w, h])
 end
 
 f = getframe(gca);
