@@ -10,19 +10,23 @@ suffix = BaseFilename.suffix;
 oldDir = pwd;
 cd(imageDir)
 
-storedPixels = zeros(startFrame, endFrame);
+storedPixels = zeros(1, endFrame-startFrame+1);
 if nargin == 5 % without argument for amplitude boost
+    j = 1;
     for i = startFrame-1:endFrame-1
         filename = joinfilename(i, prefix, increment, suffix);
         im = imread(filename, 'PixelRegion', roiRegion);
-        storedPixels(i+1) = mean(mean(im));
+        storedPixels(j) = mean(mean(im));
+        j = j + 1;
     end
 elseif nargin == 6 % with argument for amplitude boost
     fprintf('Adjusting Amplitude...\n')
+    j = 1;
     for i = startFrame-1:endFrame-1
         filename = joinfilename(i, prefix, increment, suffix);
         im = imread(filename, 'PixelRegion', roiRegion);
-        storedPixels(i+1) = mean(mean(im)) + amplituideBoost;
+        storedPixels(j) = mean(mean(im)) + amplituideBoost;
+        j = j + 1;
     end
 end
 cd(oldDir)
