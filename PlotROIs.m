@@ -18,13 +18,13 @@ imageDirectory = 'C:\Users\Loturco\Desktop\Bing - Matlab Analysis\sample data\5m
 
 %extract pixels from tiff movie based on set ROIs
 roiRegionArray = cell(1, numel(roiStartArray));
-roiStored = cell(1, numel(roiStartArray));
+roiStoredArray = cell(1, numel(roiStartArray));
 for i = 1:numel(roiStartArray)
     roiRegionArray{i} = setroi(roiStartArray{i}, roiSideLength);
-    roiStored{i} = parseimages(imageDirectory, BaseFilename, roiRegionArray{i}, startFrame, endFrame);
+    roiStoredArray{i} = parseimages(imageDirectory, BaseFilename, roiRegionArray{i}, startFrame, endFrame);
 end
 
-%mark location of ROIs on the first frame of the movie
+%plot location of ROIs on the first frame of the movie
 fprintf('Displaying ROI Locations...\n')
 markroi(imageDirectory, BaseFilename, roiSideLength, roiStartArray);
 
@@ -32,10 +32,17 @@ markroi(imageDirectory, BaseFilename, roiSideLength, roiStartArray);
 figure
 fprintf('Plotting Data...\n')
 time = startFrame:endFrame;
-for i = 1:numel(roiStored)
-    plot(time,roiStored{i})
+for i = 1:numel(roiStoredArray)
+    plot(time,roiStoredArray{i})
     hold all
 end
 hold off
 
+ %{
+%pass through ICA filter
+inputSignals = [roiStoredArray{1,:}];
+nDimention = int8(numel(roiStartArray));
+nDecomposition = 6;
+myICADemo(inputSignals, nDimention, nDecomposition)
+%}
 fprintf('Done!\n')
