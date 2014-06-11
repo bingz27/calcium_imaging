@@ -2,7 +2,7 @@ clc
 clear
 
 %%% User Inputs
-roiStartArray = {};
+roiStartArray = cell(1,6); %preallocate cell array
 for i = 1:3
     roiStartArray{i} = [740+10*(i-1), 590];
 end
@@ -17,6 +17,8 @@ imageDirectory = 'C:\Users\Loturco\Desktop\Bing - Matlab Analysis\sample data\5m
 %%% User Inputs
 
 %extract pixels from tiff movie based on set ROIs
+roiRegionArray = cell(1, numel(roiStartArray));
+roiStored = cell(1, numel(roiStartArray));
 for i = 1:numel(roiStartArray)
     roiRegionArray{i} = setroi(roiStartArray{i}, roiSideLength);
     roiStored{i} = parseimages(imageDirectory, BaseFilename, roiRegionArray{i}, startFrame, endFrame);
