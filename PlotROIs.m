@@ -13,7 +13,7 @@ roiSideLength = 30;
 startFrame = 240;
 endFrame = 340;
 BaseFilename = Filename('img_', .000000001,'_Default_000.tif'); %based on camera image naming system
-imageDirectory = 'C:\Users\Loturco\Desktop\Bing - Matlab Analysis\sample data\5msecglutamateprepost_1';
+imageDirectory = 'C:\Users\Loturco\Desktop\Bing - Matlab Analysis\data\2014.04.22 Camera_PCO 5msecglutamateprepost';
 %%% User Inputs
 
 %extract pixels from tiff movie based on set ROIs
@@ -31,7 +31,7 @@ markroi(imageDirectory, BaseFilename, roiSideLength, roiStartArray);
 %plot the fluorescence levels over time for each ROI
 figure
 fprintf('Plotting Data...\n')
-time = startFrame:endFrame;
+time = (startFrame:endFrame)*0.1;
 for i = 1:numel(roiStoredArray)
     plot(time,roiStoredArray{i})
     hold all
