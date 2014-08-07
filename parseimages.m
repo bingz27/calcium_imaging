@@ -1,4 +1,4 @@
-function storedPixels = parseimages(imageDir, BaseFilename, roiRegion, startFrame, endFrame, amplituideBoost)
+function storedPixels = parseimages(imageDirectory, BaseFilename, roiRegion, startFrame, endFrame, amplituideBoost)
 % PARSEIMAGES Extracts selected ROI from image stack and outputs stack of average amplitude in ROI over time.
 %   storedPixels = PARSEIMAGES(imageDir, BaseFilename, roiRegion, startFrame, nFrame, amplituideBoost)
 fprintf('Extracting Image Data...\n')
@@ -7,8 +7,8 @@ prefix = BaseFilename.prefix;
 increment = BaseFilename.changing_region;
 suffix = BaseFilename.suffix;
 
-oldDir = pwd;
-cd(imageDir)
+oldDirectory = pwd;
+cd(imageDirectory)
 
 storedPixels = zeros(1, endFrame-startFrame+1);
 if nargin == 5 % without argument for amplitude boost
@@ -29,5 +29,5 @@ elseif nargin == 6 % with argument for amplitude boost
         j = j + 1;
     end
 end
-cd(oldDir)
+cd(oldDirectory)
 end
